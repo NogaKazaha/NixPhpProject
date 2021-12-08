@@ -10,7 +10,7 @@
       <a href="../pages/cart.php">My cart</a>
     </div>
     <div class="h-search">
-      <input type="text" id="h-input" placeholder="Search" >
+      <input type="text" id="h-input" placeholder="Search">
       <label for="h-input"></label>
     </div>
     <div class="h-phone">
@@ -18,5 +18,3 @@
     </div>
   </div>
 </div>
-
-

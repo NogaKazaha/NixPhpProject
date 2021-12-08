@@ -1,13 +1,16 @@
 <?php
-class ComponentRenderer {
+class ComponentRenderer
+{
     protected $params, $content, $layout;
-    public function __construct($params, $content, $layout) {
+    public function __construct($params, $content, $layout)
+    {
         $this->params = $params;
         $this->content = $content;
-        $this->layout = file_get_contents(dirname(__FILE__) .'/' . $layout);
+        $this->layout = file_get_contents(dirname(__FILE__) . '/' . $layout);
     }
-    public function __toString() {
-        if($this->params != null) {
+    public function __toString()
+    {
+        if ($this->params != null) {
             $component = str_replace('{$params}', $this->params, $this->layout);
             $component = str_replace('{$content}', $this->content, $component);
             return $component;
@@ -18,4 +21,3 @@ class ComponentRenderer {
         }
     }
 }
-?>

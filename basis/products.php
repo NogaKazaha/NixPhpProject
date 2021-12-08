@@ -1,5 +1,6 @@
 <?php
-class Products {
+class Products
+{
   private $products = array(
     "cosmo" => array(
       "name" => "COSMO XR-120",
@@ -28,9 +29,10 @@ class Products {
       "photo" => "../assets/images/yellow.jpg",
       "status" => "Out of stock",
       "amount" => 0
-    ) 
+    )
   );
-  public function get(){
+  public function get()
+  {
     return (object)$this->products;
   }
 }

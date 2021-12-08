@@ -1,31 +1,30 @@
 <?php
-    spl_autoload_register(function ($class) {
-        include_once dirname(dirname(__FILE__)) . '\/basis/' . $class . '.php';
-    });
-    $products = new Products();  
-    $products = $products->get();
-    $productsDiv = '';
-    $count = 1;
-    foreach($products as $product => $value) {
-       if($count != 2) {
-          $productsDiv = $productsDiv . ' <div class="grid-item-img'. $count .'" style = "background-image: url(' . $value['photo'] . ')"></div>
+spl_autoload_register(function ($class) {
+    include_once dirname(dirname(__FILE__)) . '\/basis/' . $class . '.php';
+});
+$products = new Products();
+$products = $products->get();
+$productsDiv = '';
+$count = 1;
+foreach ($products as $product => $value) {
+    if ($count != 2) {
+        $productsDiv = $productsDiv . ' <div class="grid-item-img' . $count . '" style = "background-image: url(' . $value['photo'] . ')"></div>
           <div class="grid-item">
-              <p class="p1"><a href="card.html" class="unselectable">'. $value['name'] . '</a></p>
-              <p class="p2">3'. $value['price'] . '</p>
-              <p class="p3">'. $value['status'] . '</p>
-              <p class="p3">'. $value['amount'] . '</p>
+              <p class="p1"><a href="card.html" class="unselectable">' . $value['name'] . '</a></p>
+              <p class="p2">3' . $value['price'] . '</p>
+              <p class="p3">' . $value['status'] . '</p>
+              <p class="p3">' . $value['amount'] . '</p>
               <a href="card.php"><button type="submit" value="BUY">BUY</button></a>
           </div>
           ';
-       }
-       else {
-         $productsDiv = $productsDiv . ' 
-         <div class="grid-item-img'. $count .'" style = "background-image: url(' . $value['photo'] . ')"></div>
+    } else {
+        $productsDiv = $productsDiv . ' 
+         <div class="grid-item-img' . $count . '" style = "background-image: url(' . $value['photo'] . ')"></div>
          <div class="grid-item">
-             <p class="p1"><a href="card.html" class="unselectable">'. $value['name'] . '</a></p>
-             <p class="p2">3'. $value['price'] . '</p>
-             <p class="p3">'. $value['status'] . '</p>
-             <p class="p3">'. $value['amount'] . '</p>
+             <p class="p1"><a href="card.html" class="unselectable">' . $value['name'] . '</a></p>
+             <p class="p2">3' . $value['price'] . '</p>
+             <p class="p3">' . $value['status'] . '</p>
+             <p class="p3">' . $value['amount'] . '</p>
              <a href="card.php"><button type="submit" value="BUY">BUY</button></a>
          </div>
          <div class="grid-item-center"></div>  
@@ -39,10 +38,10 @@
                 <input type="range" name="size" id="size" />
             </div>
          ';
-       }
-       $count++;
     }
-    $content = '
+    $count++;
+}
+$content = '
          <div class="nav">
             <nav>
                <span id="span"><a href="home.php">Home</a> /</span>
@@ -77,10 +76,9 @@
                 <input type="checkbox" name="name5" id="10-15" value="10000000$ - 15000000$">
                 <label for="10-15" name="name5">10000000$ - 15000000$</label><br>
             </div>
-            '.$productsDiv.'
+            ' . $productsDiv . '
         </div>
     ';
-    $header = file_get_contents(dirname(dirname(__FILE__))."/basis/header.php");
-    $renderComponent = new ComponentRenderer($header, $content, 'basic.php');
-    print $renderComponent;
-?>
+$header = file_get_contents(dirname(dirname(__FILE__)) . "/basis/header.php");
+$renderComponent = new ComponentRenderer($header, $content, 'basic.php');
+print $renderComponent;

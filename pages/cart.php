@@ -1,8 +1,8 @@
 <?php
-    spl_autoload_register(function ($class) {
-        include_once dirname(dirname(__FILE__)) . '\/basis/' . $class . '.php';
-    });
-    $content = '
+spl_autoload_register(function ($class) {
+  include_once dirname(dirname(__FILE__)) . '\/basis/' . $class . '.php';
+});
+$content = '
       <div class="nav">
           <nav>
               <span id="span"><a href="home.php">Home</a> /</span>
@@ -20,8 +20,6 @@
           </div>
         </div>
     ';
-    $header = file_get_contents(dirname(dirname(__FILE__))."/basis/header.php");
-    $renderComponent = new ComponentRenderer($header, $content, 'basic.php');
-    print $renderComponent;
-?>
-        
+$header = file_get_contents(dirname(dirname(__FILE__)) . "/basis/header.php");
+$renderComponent = new ComponentRenderer($header, $content, 'basic.php');
+print $renderComponent;

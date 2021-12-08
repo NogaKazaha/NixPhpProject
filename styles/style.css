@@ -24,12 +24,17 @@ h1 {
   justify-content: space-between;
 }
 
-.logo, .h-menu, .h-search, .h-phone {
+.logo,
+.h-menu,
+.h-search,
+.h-phone {
   display: flex;
   border: 0px solid grey;
 }
 
-.logo p:hover, .h-menu a:hover, .h-phone p:hover {
+.logo p:hover,
+.h-menu a:hover,
+.h-phone p:hover {
   color: gold;
 }
 
@@ -242,7 +247,7 @@ a:active {
 
 .grid-item-chbx {
   padding-left: 0px;
-  user-select: none;  
+  user-select: none;
 }
 
 .grid-item-center {
@@ -252,7 +257,7 @@ a:active {
 
 .grid-item-img1 {
   display: flex;
-  
+
   width: 280px;
   height: 175px;
   border-radius: 20px;
@@ -307,11 +312,12 @@ a:active {
 }
 
 .p3 {
-  color: red;   
+  color: red;
 }
 
-.grid-item button, .container-card button {
-  width:  100%;
+.grid-item button,
+.container-card button {
+  width: 100%;
   background-color: #60bba6;
   color: white;
   border: none;
@@ -319,7 +325,10 @@ a:active {
   height: 36px;
 }
 
-.grid-item-chbx, .grid-item-img1, .grid-item, .grid-item-img2 {
+.grid-item-chbx,
+.grid-item-img1,
+.grid-item,
+.grid-item-img2 {
   border: 0px solid grey;
 }
 
@@ -332,7 +341,6 @@ h2 a {
   text-align: left;
   text-transform: none;
   padding-left: 0px;
-  
 }
 
 .nav {
@@ -341,7 +349,7 @@ h2 a {
 }
 
 /* card css */
-.container-card {   
+.container-card {
   display: flex;
   width: 98%;
   height: 80%;
@@ -349,7 +357,8 @@ h2 a {
   justify-content: space-around;
 }
 
-.card-left, .card-right {
+.card-left,
+.card-right {
   width: 45%;
   height: auto;
   border: 0px solid red;
@@ -376,7 +385,9 @@ h2 a {
   margin-top: 30px;
 }
 
-.home-container, .cart-container, .account-container {
+.home-container,
+.cart-container,
+.account-container {
   text-align: center;
 }
 .home-container h1 {
@@ -420,7 +431,9 @@ h2 a {
 .login-inputs input {
   width: 500px;
 }
-.login-inputs input, button, form .logout-btn {
+.login-inputs input,
+button,
+form .logout-btn {
   margin: 10px 0 10px 0;
   padding: 10px 20px;
   border-radius: 10px;
@@ -428,12 +441,16 @@ h2 a {
 .login-inputs input {
   border: 1px solid #4b9483;
 }
-.login-inputs button, .cart-pay, .logout-btn {
+.login-inputs button,
+.cart-pay,
+.logout-btn {
   background-color: #4b9483;
   color: white;
   border: none;
 }
-.login-inputs button:hover, .cart-pay:hover, .logout-btn:hover {
+.login-inputs button:hover,
+.cart-pay:hover,
+.logout-btn:hover {
   color: white;
   background-color: #357062;
 }
