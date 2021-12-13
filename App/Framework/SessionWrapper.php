@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Framework;
+
 class SessionWrapper
 {
   public function __construct()
@@ -19,9 +22,9 @@ class SessionWrapper
         $params['httponly']
       );
       session_destroy();
-      $link_split = explode('pages', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
-      $actual_link = $link_split[0] . 'pages/';
-      header("Location: " . $actual_link . "login.php");
+      $link_split = explode('public', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+      $actual_link = $link_split[0] . 'public/';
+      header("Location: " . $actual_link . "./login");
     }
   }
 }
