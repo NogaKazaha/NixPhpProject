@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    $content
+    <?php include dirname(__DIR__) . '/Views/' . $file; ?>
 </body>
 
 </html>
