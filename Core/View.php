@@ -4,10 +4,11 @@ namespace Core;
 
 class View
 {
-    public static function render($file)
+    public static function render($file, ?array $data = null)
     {
-        $layout = file_get_contents(dirname(__DIR__) . '/App/Views/base.php');
-        $content = file_get_contents(dirname(__DIR__) . '/App/Views/' . $file);
-        print(str_replace('$content', $content, $layout));
+        $layout = dirname(__DIR__) . '/App/Views/base.php';
+        if (is_array($data))
+            extract($data);
+        include_once $layout;
     }
 }

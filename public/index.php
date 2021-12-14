@@ -12,6 +12,6 @@ $router->add('login', ['controller' => 'Login', 'action' => 'index']);
 $router->add('account', ['controller' => 'Account', 'action' => 'index']);
 $router->add('card', ['controller' => 'Card', 'action' => 'index']);
 $router->add('cart', ['controller' => 'Cart', 'action' => 'index']);
-
+$router->add('catalog', ['controller' => 'Products', 'action' => 'index']);
 
 $router->dispatch($_SERVER['QUERY_STRING']);

@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use \Core\View;
-use App\Framework\SessionWrapper;
+use \Core\SessionWrapper;
 
 class Login extends \Core\Controller
 {
