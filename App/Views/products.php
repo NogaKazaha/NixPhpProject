@@ -2,6 +2,7 @@
 $productsDiv = '';
 $count = 1;
 foreach ($products as $product => $value) {
+  $value = get_object_vars($value);
   if ($count != 2) {
     $productsDiv = $productsDiv . ' <div class="grid-item-img' . $count . '" style = "background-image: url(' . $value['photo'] . ')"></div>
      <div class="grid-item">
@@ -39,8 +40,8 @@ foreach ($products as $product => $value) {
 $content = '
     <div class="nav">
        <nav>
-          <span id="span"><a href="#">Home</a> /</span>
-          <span><a href="#">Catalog</a></span>
+          <span id="span"><a href="./">Home</a> /</span>
+          <span><a href="./catalog">Catalog</a></span>
        </nav>
     </div>
    <div class="nav-chbx">
