@@ -5,12 +5,12 @@ const Countries = [
 ]
 
 function validateField() {
-  string = document.getElementById('field').value
+  const string = document.getElementById('field').value
   if(string == "") {
     document.querySelector('h2').setAttribute('id', 'error')
     document.querySelector('h2').innerHTML = 'Field should be not empty'
   } else {
-    let isOK = /^[A-Z].{3}/.test(string);
+    let isOK = /^[A-Z].{3}/.test(string)
     if(isOK == false) {
       document.querySelector('h2').setAttribute('id', 'error')
       document.querySelector('h2').innerHTML = 'Field should start with uppercase and have 4 or more letters'
