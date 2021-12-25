@@ -1,0 +1,32 @@
+body {
+  text-align: center;
+}
+#input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#input input {
+  width: 600px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  border: 1px solid gray;
+}
+#input button {
+  width: 300px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  border: none;
+}
+#input button:hover {
+  background-color: rgb(216, 216, 216);
+}
+#error {
+  color: red;
+}
+#validated {
+  color: green;
+}
