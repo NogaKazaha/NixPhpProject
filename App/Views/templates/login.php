@@ -1,0 +1,1 @@
+<h2>In the online store "<?= $shopName ?>" you sucessfuly logged in</h2>

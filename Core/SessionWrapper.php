@@ -27,4 +27,20 @@ class SessionWrapper
       header("Location: " . $actual_link . "./login");
     }
   }
+  public function redirectIfAuth()
+  {
+    $link_split = explode('public', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+    $actual_link = $link_split[0] . 'public/';
+    if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
+      header("Location: " . $actual_link . "account");
+    }
+  }
+  public function redirectIfNotAuth()
+  {
+    $link_split = explode('public', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+    $actual_link = $link_split[0] . 'public/';
+    if (!isset($_SESSION['email']) && !isset($_SESSION['password'])) {
+      header("Location: " . $actual_link . "login");
+    }
+  }
 }

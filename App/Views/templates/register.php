@@ -1,0 +1,1 @@
+<h2>In the online store "<?= $shopName ?>" you sucessfuly registered your account</h2>

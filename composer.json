@@ -2,7 +2,11 @@
     "autoload": {
         "psr-4": {
             "Core\\": "Core/",
-            "App\\": "App/"
+            "App\\": "App/",
+            "NogaMailer\\" : "vendor/nogakazaha/mailer/src/Mailer"
         }
+    },
+    "require": {
+        "nogakazaha/mailer": "^1.3"
     }
 }

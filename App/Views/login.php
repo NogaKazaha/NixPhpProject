@@ -11,4 +11,5 @@
     <input type="password" name="password" placeholder="Enter your password" />
     <button type="submit">Log in</button>
   </form>
+  <span>Don't have account? <a href="./sign_up" class="sign-up-btn">Sign up</a></span>
 </div>

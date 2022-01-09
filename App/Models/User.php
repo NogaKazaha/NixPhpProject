@@ -7,47 +7,54 @@ use PDO;
 class User extends \Core\Model
 {
     public int $id;
+    public string $username;
     public string $email;
     public string $password;
     public string $created_at;
     public string $updated_at;
     public static function getAll()
     {
-        $db = static::getDB();
-        $stmt = $db->query('SELECT id, email FROM users');
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $database = static::getDB();
+        $statement = $database->query('SELECT id, username, email FROM users');
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
     public static function create(array $data): User
     {
-        $db = static::getDB();
-        $stm = $db->prepare("INSERT INTO users (email, password) VALUES (:email, :password)");
+        $database = static::getDB();
+        $statement = $database->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
         try {
-            $stm->execute([
+            $statement->execute([
+                ':username' => $data['username'],
                 ':email' => $data['email'],
                 ':password' => $data['password']
             ]);
         } catch (\PDOException $e) {
             echo "Creation failed: " . $e->getMessage();
         }
-        return $db->query("SELECT * FROM users WHERE name='" . $data['name'] . "'")->fetchObject(__CLASS__);
+        return $database->query("SELECT * FROM users WHERE username='" . $data['username'] . "'")->fetchObject(__CLASS__);
     }
     public static function find(int $id): User
     {
         return static::getDB()->query("SELECT * FROM users WHERE id=$id")->fetchObject(__CLASS__);
     }
+    public static function findByEmail(string $dataMail, string $email, string $dataPass, string $pass): User | array
+    {
+        return static::getDB()->query("SELECT * FROM users WHERE $dataMail='$email' AND $dataPass='$pass'")->fetchAll(\PDO::FETCH_CLASS, __CLASS__);
+    }
     public static function update(array $data, int $id): User
     {
-        $db = static::getDB();
-        $stm = $db->prepare("UPDATE users SET email=:email, password=:password, updated_at=now() WHERE id=$id");
+        $database = static::getDB();
+        $statement = $database->prepare("UPDATE users SET username=:username, email=:email, password=:password, updated_at=now() WHERE id=$id");
         try {
-            $stm->execute([
+            $statement->execute([
+                ':username' => $data['username'],
                 ':email' => $data['email'],
                 ':password' => $data['password']
             ]);
         } catch (\PDOException $e) {
             echo "Updating failed: " . $e->getMessage();
         }
-        return $db->query("SELECT * FROM users WHERE id=$id")->fetchObject(__CLASS__);
+        return $database->query("SELECT * FROM users WHERE id=$id")->fetchObject(__CLASS__);
     }
     public static function destroy(int $id): bool
     {
