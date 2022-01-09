@@ -10,6 +10,7 @@ class Account extends \Core\Controller
   public function indexAction()
   {
     $session = new SessionWrapper();
+    $session->redirectIfNotAuth();
     $session->checkSession();
     $link_split = explode('public', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
     $actual_link = $link_split[0] . 'public/';

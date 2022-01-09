@@ -9,12 +9,12 @@ abstract class Model
 {
     protected static function getDB()
     {
-        static $db = null;
-        if ($db === null) {
+        static $database = null;
+        if ($database === null) {
             $dsn = 'mysql:host=' . Config::DB_HOST . ';dbname=' . Config::DB_NAME . ';charset=utf8';
-            $db = new PDO($dsn, Config::DB_USER, Config::DB_PASSWORD);
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $database = new PDO($dsn, Config::DB_USER, Config::DB_PASSWORD);
+            $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
-        return $db;
+        return $database;
     }
 }

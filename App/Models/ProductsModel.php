@@ -20,10 +20,10 @@ class ProductsModel extends \Core\Model
   }
   public static function create(array $data): ProductsModel
   {
-    $db = static::getDB();
-    $stm = $db->prepare("INSERT INTO products (name, price, status, amount, photo, created_at, updated_at) VALUES (:name, :price, :status, :amount, :photo, now(), now())");
+    $database = static::getDB();
+    $statement = $database->prepare("INSERT INTO products (name, price, status, amount, photo, created_at, updated_at) VALUES (:name, :price, :status, :amount, :photo, now(), now())");
     try {
-      $stm->execute([
+      $statement->execute([
         ':name' => $data['name'],
         ':price' => $data['price'],
         ':status' => $data['status'],
@@ -33,18 +33,18 @@ class ProductsModel extends \Core\Model
     } catch (\PDOException $e) {
       echo "Creation failed: " . $e->getMessage();
     }
-    return $db->query("SELECT * FROM products WHERE name='" . $data['name'] . "'")->fetchObject(__CLASS__);
+    return $database->query("SELECT * FROM products WHERE name='" . $data['name'] . "'")->fetchObject(__CLASS__);
   }
   public static function find(int $id): ProductsModel
   {
-    return static::getDB()->query("SELECT * FROM products WHERE id=$id")->fetchObject(__CLASS__);
+    return static::getDB()->query("SELECT * FROM products WHERE id=$id")->fetchObject(__CLASS__) ?: new ProductsModel;
   }
   public static function update(array $data, int $id): ProductsModel
   {
-    $db = static::getDB();
-    $stm = $db->prepare("UPDATE products SET name=:name, price=:price, status=:status, amount=:amount photo=:photo, updated_at=now() WHERE id=$id");
+    $database = static::getDB();
+    $statement = $database->prepare("UPDATE products SET name=:name, price=:price, status=:status, amount=:amount photo=:photo, updated_at=now() WHERE id=$id");
     try {
-      $stm->execute([
+      $statement->execute([
         ':name' => $data['name'],
         ':price' => $data['price'],
         ':status' => $data['status'],
@@ -54,7 +54,7 @@ class ProductsModel extends \Core\Model
     } catch (\PDOException $e) {
       echo "Updating failed: " . $e->getMessage();
     }
-    return $db->query("SELECT * FROM products WHERE id=$id")->fetchObject(__CLASS__);
+    return $database->query("SELECT * FROM products WHERE id=$id")->fetchObject(__CLASS__);
   }
   public static function destroy(int $id): bool
   {
